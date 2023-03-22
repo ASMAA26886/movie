@@ -1,33 +1,23 @@
 import './App.css';
 import { useState } from 'react';
-import AddMovie from './AddMovie';
-import MovieCard from './MovieCard';
-import FilterMovie from './FilterMovie';
+
+import {Routes, Route, Link } from "react-router-dom";
+import About from './About';
+import Home from './Home';
+
 
 function App() {
-  const [movies,setMovies]=useState([
-    {title:"first movie",
-    image:"/logo192.png"
-  },
-  {title:"second movie",
-  image:"/logo192.png"
-},
-{title:"third movie",
-image:"/logo192.png"
-}
-  ])
+  
   return (
-    <div className="flex items-center flex-col">
-      <AddMovie setMovies={setMovies} movies={movies}/>
-    <FilterMovie movies={movies} setMovies={setMovies}/>
-      <div className='grid grid-cols-3' >
-      {movies.map((value)=><MovieCard value={value}/>)
-      }
-      </div>
-      
+   
+      <Routes>
+         <Route path="/about" element={<About />} />
+         <Route path="/" element={<Home />} />
 
-    </div>
-  );
+         </Routes>
+
+
+);
 }
 
 export default App;
